@@ -76,6 +76,7 @@ public class ProfileManagement extends javax.swing.JFrame {
     setupPaymentTableListener();
     loadPaymentDropdown();
     loadCustomerDropdown();
+    loadCSNameHomePage();
     
     
 
@@ -248,6 +249,17 @@ private void loadUsersTable(String prefix) {
      }
     }
 }
+
+
+private void loadCSNameHomePage() {
+    for (String[] data : UserDetailsEdit.getAllUsers()) {  
+       
+        String name = data[1];
+        
+        jTextField94.setText(name);
+    }
+}
+
 
 private void clearFields() {
     CustID.setText("");
@@ -537,6 +549,7 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
         SubmitButton24 = new javax.swing.JButton();
         SubmitButton25 = new javax.swing.JButton();
         jTextField94 = new javax.swing.JTextField();
+        jTextField99 = new javax.swing.JTextField();
         C_S_UserEditPage = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         userTable = new javax.swing.JTable();
@@ -750,12 +763,21 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
 
         jTextField94.setEditable(false);
         jTextField94.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField94.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        jTextField94.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
         jTextField94.setForeground(new java.awt.Color(0, 0, 0));
         jTextField94.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField94.setText("HELLO <<insertCSname>>");
+        jTextField94.setText("<<insertCSname>>");
         jTextField94.setBorder(null);
         jTextField94.addActionListener(this::jTextField94ActionPerformed);
+
+        jTextField99.setEditable(false);
+        jTextField99.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField99.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        jTextField99.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField99.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField99.setText("HELLO");
+        jTextField99.setBorder(null);
+        jTextField99.addActionListener(this::jTextField99ActionPerformed);
 
         javax.swing.GroupLayout C_S_CounterStaffMasterPageLayout = new javax.swing.GroupLayout(C_S_CounterStaffMasterPage);
         C_S_CounterStaffMasterPage.setLayout(C_S_CounterStaffMasterPageLayout);
@@ -776,12 +798,14 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
                             .addComponent(SubmitButton22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(SubmitButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(C_S_CounterStaffMasterPageLayout.createSequentialGroup()
-                        .addGap(518, 518, 518)
-                        .addComponent(jTextField94, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(534, 534, 534)
+                        .addComponent(jTextField99, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField94, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(C_S_CounterStaffMasterPageLayout.createSequentialGroup()
                         .addGap(366, 366, 366)
                         .addComponent(jTextField93, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(384, Short.MAX_VALUE))
+                .addContainerGap(1433, Short.MAX_VALUE))
         );
         C_S_CounterStaffMasterPageLayout.setVerticalGroup(
             C_S_CounterStaffMasterPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -789,7 +813,9 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
                 .addGap(50, 50, 50)
                 .addComponent(jTextField93, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField94, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(C_S_CounterStaffMasterPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField94, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField99, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(116, 116, 116)
                 .addGroup(C_S_CounterStaffMasterPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(SubmitButton24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -798,7 +824,7 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
                 .addGroup(C_S_CounterStaffMasterPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(SubmitButton25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(SubmitButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 523, Short.MAX_VALUE)
                 .addComponent(SubmitButton21)
                 .addContainerGap())
         );
@@ -1539,11 +1565,10 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
                         .addGap(366, 366, 366)
                         .addComponent(jTextField92, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(C_S_AppointmentManagementPageLayout.createSequentialGroup()
-                        .addGap(448, 448, 448)
-                        .addComponent(SubmitButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(C_S_AppointmentManagementPageLayout.createSequentialGroup()
-                        .addGap(448, 448, 448)
-                        .addComponent(SubmitButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(457, 457, 457)
+                        .addGroup(C_S_AppointmentManagementPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(SubmitButton20, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
+                            .addComponent(SubmitButton19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(1419, Short.MAX_VALUE))
         );
         C_S_AppointmentManagementPageLayout.setVerticalGroup(
@@ -1551,13 +1576,13 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
             .addGroup(C_S_AppointmentManagementPageLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jTextField92, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(166, 166, 166)
+                .addGap(167, 167, 167)
                 .addComponent(SubmitButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(124, 124, 124)
+                .addGap(122, 122, 122)
                 .addComponent(SubmitButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(184, 184, 184)
+                .addGap(185, 185, 185)
                 .addComponent(SubmitButton18)
-                .addContainerGap(384, Short.MAX_VALUE))
+                .addContainerGap(396, Short.MAX_VALUE))
         );
 
         ContentPanel.add(C_S_AppointmentManagementPage, "AppointManage");
@@ -3048,6 +3073,10 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
         backbutton.show(ContentPanel, "CounterStaffMasterPage");
     }//GEN-LAST:event_SubmitButton33ActionPerformed
 
+    private void jTextField99ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField99ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField99ActionPerformed
+
 
 public class HoverEffect extends MouseAdapter {
 
@@ -3241,6 +3270,7 @@ public class HoverEffect extends MouseAdapter {
     private javax.swing.JTextField jTextField96;
     private javax.swing.JTextField jTextField97;
     private javax.swing.JTextField jTextField98;
+    private javax.swing.JTextField jTextField99;
     private javax.swing.JButton receiptToTxt;
     private javax.swing.JTable userTable;
     // End of variables declaration//GEN-END:variables
