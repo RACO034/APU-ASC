@@ -24,4 +24,10 @@ public class FileHandler {
             e.printStackTrace();
         }
     }
+    
+    // to get timestamp for operations - date joined, appointment creations...
+    // so timestamp same format everywhere
+    public static String getTimestamp(){
+        return java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss"));
+    }
 }

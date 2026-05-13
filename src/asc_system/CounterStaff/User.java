@@ -11,6 +11,8 @@ public class User {
     protected String gender;
     protected String address;
     protected String nationality;
+    protected String dateJoined;
+    
 
     
     public String getUsername() { return username; }
@@ -20,6 +22,7 @@ public class User {
     public String getGender() { return gender; }
     public String getHomeAddress() { return address; }
     public String getNationality() { return nationality; }
+    public String getDateJoined() { return dateJoined; }
     public int getAge() { return age; }
 
     
@@ -78,4 +81,11 @@ public class User {
         if (nationality == null || nationality.isEmpty()) throw new IllegalArgumentException("Nationality required");
         this.nationality = nationality;
     }
+    
+    // ensure date joined will only be the one generated upon acc creation
+    public void setDateJoined() {
+        this.dateJoined = FileHandler.getTimestamp();
+    }
+    
+    
 }
