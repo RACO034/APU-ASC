@@ -4,6 +4,7 @@
  */
 public class User {
     protected String username;
+    protected String password;
     protected String phoneNumber;
     protected String email;
     protected int age;
@@ -13,6 +14,7 @@ public class User {
 
     
     public String getUsername() { return username; }
+    public String getPassword() { return password; }
     public String getEmail() { return email; }
     public String getPhoneNumber() { return phoneNumber; }
     public String getGender() { return gender; }
@@ -26,6 +28,19 @@ public class User {
             throw new IllegalArgumentException("Username cannot be empty");
         }
         this.username = username;
+    }
+
+    public void setPassword(String password) {
+        if (password.length() <= 10 ||
+            !password.matches(".*[A-Z].*") ||
+            !password.matches(".*[a-z].*") ||
+            !password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*") ||
+            !password.matches(".*[0-9].*")) {
+            throw new IllegalArgumentException("Password must be at least 11 characters long, " +
+                "contain at least one uppercase letter, one lowercase letter, " +
+                "one symbol, and one number.");
+        }
+        this.password = password;
     }
 
     public void setEmail(String email) {
