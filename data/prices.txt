@@ -1,0 +1,2 @@
+Minor Service:67676.00
+Major Service:300.00

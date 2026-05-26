@@ -1,0 +1,2 @@
+T001|John Tan|pass123|Male|32|john@email.com|KL|Malaysian
+T002|John sigma|pass123|Male|32|john@email.com|KL|Malaysian
