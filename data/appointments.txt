@@ -1,5 +1,5 @@
-APT-001|CUST-001|TECH-001|Engine Repair|2026-05-26|09:00|2|Assigned||
+APT-001|CUST-001|TECH-001|Engine Repair|2026-05-26|09:00|3|Completed||Checked engine chamber, found spark plug issue. Replaced spark plug.
 APT-002|CUST-002|TECH-001|Brake Inspection|2026-05-26|11:00|1|Completed|Car makes squeaking noise when braking|Replaced front brake pads, all good.
 APT-003|CUST-003|TECH-001|General Maintenance|2026-05-27|14:00|3|Pending||
-APT-004|CUST-004|TECH-001|Electrical|2026-05-28|10:00|2|Assigned|Check why dashboard lights flicker|
+APT-004|CUST-004|TECH-001|Electrical|2026-05-28|10:00|1|Assigned|Check why dashboard lights flicker|
 APT-005|CUST-005|TECH-002|Air Conditioning|2026-05-26|13:00|1|Completed|AC not cold|Recharged refrigerant, compressor is fine.
