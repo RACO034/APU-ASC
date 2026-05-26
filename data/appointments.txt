@@ -1,5 +1,5 @@
-APP001|C001|T001|Engine Repair|2026-05-26|09:00|3|Completed||Checked engine chamber, found spark plug issue. Replaced spark plug.
-APP002|C002|T001|Brake Inspection|2026-05-26|11:00|1|Completed|Car makes squeaking noise when braking|Replaced front brake pads, all good.
-APP003|C003|T001|General Maintenance|2026-05-27|14:00|3|Pending||
-APP004|C004|T001|Electrical|2026-05-28|10:00|1|Assigned|Check why dashboard lights flicker|
-APP005|C005|T002|Air Conditioning|2026-05-26|13:00|1|Completed|AC not cold|Recharged refrigerant, compressor is fine.
+APP001|C00001|T001|Engine Repair|2026-05-26|09:00|3|Completed||Checked engine chamber, found spark plug issue. Replaced spark plug.
+APP002|C00002|T001|Brake Inspection|2026-05-26|11:00|1|Completed|Car makes squeaking noise when braking|Replaced front brake pads, all good.
+APP003|C00003|T001|General Maintenance|2026-05-27|14:00|3|Pending||
+APP004|C00004|T001|Electrical|2026-05-28|10:00|1|Assigned|Check why dashboard lights flicker|
+APP005|C00005|T002|Air Conditioning|2026-05-26|13:00|1|Completed|AC not cold|Recharged refrigerant, compressor is fine.
