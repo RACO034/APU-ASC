@@ -480,9 +480,9 @@ public class TechnicianDashboard extends JFrame{
             current.setHomeAddress(tfAddr.getText().trim());
             current.setTrade((TechnicianTrade)  cbTrade.getSelectedItem());
             current.setStatus((TechnicianStatus) cbStatus.getSelectedItem());
-            // NOTE: persist to file here once TechnicianDAO.save() exists
-            // depends if we have technician.txt
-            JOptionPane.showMessageDialog(this, "Profile updated (in-memory).\nAdd TechnicianDAO.save() to persist.",
+            // saved to technician.txt
+            new TechnicianRepository().saveTechnician(current);
+            JOptionPane.showMessageDialog(this, "Profile updated.",
                 "Saved", JOptionPane.INFORMATION_MESSAGE);
         } catch (NumberFormatException nfe) {
             JOptionPane.showMessageDialog(this, "Age must be a whole number.",

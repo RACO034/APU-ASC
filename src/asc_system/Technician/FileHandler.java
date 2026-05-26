@@ -1,12 +1,13 @@
 
 package asc_system.Technician;
 
+
 /**
  *
  * @author XL
  */
 
-// exact same as cs filehandler, duplicated for easier access
+// similar to cs filehandler, duplicated for easier access
 import java.io.File;
 import java.io.IOException;
 

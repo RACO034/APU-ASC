@@ -98,7 +98,7 @@ public class AppointmentDAO {
                 for (int j = 0; j < 7; j++) {
                     newParts[j] = parts[j];   // [0]-[6]: preserve Ian's data untouched
                 }
-                // [7] status: enum → file label string ("Completed", "Assigned", etc.)
+                // [7] status: enum -> file label string ("Completed", "Assigned", etc.)
                 newParts[7] = updated.getStatus() != null
                     ? updated.getStatus().getFileLabel() : "Pending";
                 newParts[8] = nvl(updated.getCustomerComments());
@@ -135,11 +135,11 @@ public class AppointmentDAO {
         a.setCustomerID(p[1].trim());
         a.setTechnicianID(p[2].trim());
         a.setServiceType(p[3].trim());
-        a.setScheduledDateFromString(p[4].trim());  // String → LocalDate
-        a.setScheduledTimeFromString(p[5].trim());  // String → LocalTime
+        a.setScheduledDateFromString(p[4].trim());  // String -> LocalDate
+        a.setScheduledTimeFromString(p[5].trim());  // String -> LocalTime
         try { a.setDuration(Integer.parseInt(p[6].trim())); }
         catch (NumberFormatException ignored) {}
-        a.setStatus(AppointmentStatus.fromFileLabel(p[7].trim())); // String → enum
+        a.setStatus(AppointmentStatus.fromFileLabel(p[7].trim())); // String -> enum
  
         // Optional Technician-added columns
         if (p.length > 8) a.setCustomerComments(p[8].trim());
@@ -155,8 +155,8 @@ public class AppointmentDAO {
             nvl(a.getCustomerID()),
             nvl(a.getTechnicianID()),
             nvl(a.getServiceType()),
-            a.getScheduledDateStr(),    // LocalDate → "yyyy-MM-dd"
-            a.getScheduledTimeStr(),    // LocalTime → "HH:mm"
+            a.getScheduledDateStr(),    // LocalDate -> "yyyy-MM-dd"
+            a.getScheduledTimeStr(),    // LocalTime -> "HH:mm"
             String.valueOf(a.getDuration()),
             a.getStatus() != null ? a.getStatus().getFileLabel() : "Pending",
             nvl(a.getCustomerComments()),
