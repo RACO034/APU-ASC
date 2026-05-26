@@ -174,9 +174,9 @@ public class TechnicianDashboard extends JFrame{
             .count();
  
         JPanel statRow = new JPanel(new GridLayout(1, 4, 6, 0));
-        statRow.add(statPanel("Total Assigned",  String.valueOf(appointments.size())));
-        statRow.add(statPanel("In Progress",     String.valueOf(inProg)));
-        statRow.add(statPanel("Completed",       String.valueOf(completed)));
+        statRow.add(statPanel("Total Assigned",String.valueOf(appointments.size())));
+        statRow.add(statPanel("In Progress",String.valueOf(inProg)));
+        statRow.add(statPanel("Completed",String.valueOf(completed)));
         statRow.add(statPanel("Pending Feedback",String.valueOf(needFB)));
         root.add(statRow, BorderLayout.NORTH);   // replaced the label above
  
@@ -481,6 +481,7 @@ public class TechnicianDashboard extends JFrame{
             current.setTrade((TechnicianTrade)  cbTrade.getSelectedItem());
             current.setStatus((TechnicianStatus) cbStatus.getSelectedItem());
             // NOTE: persist to file here once TechnicianDAO.save() exists
+            // depends if we have technician.txt
             JOptionPane.showMessageDialog(this, "Profile updated (in-memory).\nAdd TechnicianDAO.save() to persist.",
                 "Saved", JOptionPane.INFORMATION_MESSAGE);
         } catch (NumberFormatException nfe) {
@@ -537,7 +538,7 @@ public class TechnicianDashboard extends JFrame{
     }
     
     
-    // Button column helper
+    // BUTTON COLUMN HELPER
     
      private void installButtonColumn(JTable table, DefaultTableModel model,
                                       int col, String label,

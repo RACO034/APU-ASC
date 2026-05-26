@@ -5,7 +5,7 @@ package asc_system.Technician;
  * @author XL
  */
 
-public class User {
+abstract class User {
     protected String username;
     protected String password;
     protected String phoneNumber;

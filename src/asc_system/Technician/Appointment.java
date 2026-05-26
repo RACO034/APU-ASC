@@ -10,7 +10,7 @@ import java.time.format.DateTimeParseException;
  */
 
 /**this is made to streamline technician workflow
- * files stores date and time as string
+ * txt files stores date and time as string
  * class holds them as LocalDate/ LocalTime -> code can use date / time object
  * AppointmentDAO handles String -> LocalDate/LocalTime conversion 
 */
@@ -160,26 +160,6 @@ public class Appointment {
 
     public void setTechnicianFeedback(String technicianFeedback) {
         this.technicianFeedback = technicianFeedback;
-    }
-    
-    
-    // -- display helpers
-    // shown in dashboard table
-    public String getDisplayName() {
-        return customerID != null ? customerID : "—";
-    }
-    
-    // row array for JTable DefaultTableModel in TechnicianDashboard 
-    public Object[] toTableRow() {
-        return new Object[]{
-            appointmentID,
-            getDisplayName(),
-            serviceType,
-            getScheduledDateStr(),
-            getScheduledTimeStr(),
-            duration + "h",
-            status != null ? status.toString() : "—"
-        };
     }
     
     
