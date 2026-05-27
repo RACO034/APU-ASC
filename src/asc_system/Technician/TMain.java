@@ -27,10 +27,10 @@ public class TMain {
 //            tech.setNationality("Malaysian");
 //            tech.setHomeAddress("Jalan Ampang, KL");
 
-            // load from technician.txt
+            // load from technician.txt, t001
             TechnicianRepository repo = new TechnicianRepository();
             List<String[]> all = repo.getAllTechnicians();
-            String[] row = all.get(0);
+            String[] row = all.get(0); // change param to get diff technician
             
             Technician tech = new Technician(
                 row[0],
@@ -48,17 +48,17 @@ public class TMain {
             tech.setHomeAddress(row[7]);
             tech.setNationality(row[8]);
             
-            // --- debug, remove after --- (cannot find txt file)
-            java.util.List<Appointment> test = AppointmentDAO.getByTechnicianID("T001");
-            System.out.println("Found: " + test.size());
-            
-            // Add this to see ALL appointments regardless of ID
-            List<Appointment> allApp = AppointmentDAO.getAll();
-            System.out.println("Total lines read: " + allApp.size());
-            for (Appointment a : allApp) {
-                System.out.println("[" + a.getAppointmentID() + "] | [" + a.getTechnicianID() + "]");
-            }
-            // --- end debug ---
+//            // --- debug, remove after --- (cannot find txt file)
+//            java.util.List<Appointment> test = AppointmentDAO.getByTechnicianID("T001");
+//            System.out.println("Found: " + test.size());
+//            
+//            // Add this to see ALL appointments regardless of ID
+//            List<Appointment> allApp = AppointmentDAO.getAll();
+//            System.out.println("Total lines read: " + allApp.size());
+//            for (Appointment a : allApp) {
+//                System.out.println("[" + a.getAppointmentID() + "] | [" + a.getTechnicianID() + "]");
+//            }
+//            // --- end debug ---
             
             new TechnicianDashboard(tech);
         });

@@ -38,7 +38,7 @@ public class TechnicianDashboard extends JFrame{
     private Appointment selectedForFeedback;
     private JLabel fbApptLabel;
     private JLabel fbCommentsValue;
-    private JTextField fbServiceField;
+    private JLabel fbServiceField;
     private JTextArea fbRemarksArea;
     
     // column definition
@@ -217,7 +217,7 @@ public class TechnicianDashboard extends JFrame{
                 a.getAppointmentID(),
                 a.getCustomerID(),
                 a.getServiceType(),
-                a.getScheduledDateStr(),   // String so table shows nicely
+                a.getScheduledDateStr(),  
                 a.getScheduledTimeStr(),
                 a.getDuration() + "h",
                 a.getStatus() != null ? a.getStatus().toString() : "—",
@@ -338,7 +338,8 @@ public class TechnicianDashboard extends JFrame{
         // Service performed
         g.gridx = 0; g.gridy = 1; g.weightx = 0;
         form.add(new JLabel("Service performed:"), g);
-        fbServiceField = new JTextField(30);
+        fbServiceField = new JLabel("—");
+        fbServiceField.setBorder(BorderFactory.createEtchedBorder());
         g.gridx = 1; g.weightx = 1;
         form.add(fbServiceField, g);
  
@@ -500,10 +501,15 @@ public class TechnicianDashboard extends JFrame{
             "Appointment ID : %s%nCustomer ID    : %s%nService        : %s%n" +
             "Date / Time    : %s  %s  (%dh)%nStatus         : %s%n%n" +
             "Customer notes : %s%nTech feedback  : %s",
-            a.getAppointmentID(), a.getCustomerID(),
-            a.getServiceType(), a.getScheduledDateStr(), a.getScheduledTimeStr(),
-            a.getDuration(), a.getStatus(),
-            nvl(a.getCustomerComments()), nvl(a.getTechnicianFeedback()));
+            a.getAppointmentID(), 
+            a.getCustomerID(),
+            a.getServiceType(), 
+            a.getScheduledDateStr(), 
+            a.getScheduledTimeStr(),
+            a.getDuration(), 
+            a.getStatus(),
+            nvl(a.getCustomerComments()), 
+            nvl(a.getTechnicianFeedback()));
         JTextArea ta = new JTextArea(msg);
         ta.setFont(new Font("Monospaced", Font.PLAIN, 12));
         ta.setEditable(false);
