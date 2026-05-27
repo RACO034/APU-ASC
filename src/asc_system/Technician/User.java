@@ -1,10 +1,11 @@
-package asc_system.CounterStaff;
-
+package asc_system.Technician;
+// copy of User.java by Ian for easier access
 /**
- * @author Ian
- * Concept: Inheritance (Superclass) & Encapsulation
+ *
+ * @author XL
  */
-public class User {
+
+abstract class User {
     protected String username;
     protected String password;
     protected String phoneNumber;
@@ -91,3 +92,4 @@ public class User {
     
     
 }
+

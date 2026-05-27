@@ -1,8 +1,7 @@
-package asc_system.CounterStaff;
+package asc_system.Manager;
 
 /**
- * @author Ian
- * Concept: Inheritance (Superclass) & Encapsulation
+ * Superclass for manager accounts (inheritance & encapsulation).
  */
 public class User {
     protected String username;
@@ -14,9 +13,7 @@ public class User {
     protected String address;
     protected String nationality;
     protected String dateJoined;
-    
 
-    
     public String getUsername() { return username; }
     public String getPassword() { return password; }
     public String getEmail() { return email; }
@@ -27,23 +24,21 @@ public class User {
     public String getDateJoined() { return dateJoined; }
     public int getAge() { return age; }
 
-    
     public void setUsername(String username) {
-        if (username == null || username.isEmpty()) {
+        if (username == null || username.trim().isEmpty()) {
             throw new IllegalArgumentException("Username cannot be empty");
         }
-        this.username = username;
+        this.username = username.trim();
     }
 
     public void setPassword(String password) {
-        if (password.length() <= 10 ||
-            !password.matches(".*[A-Z].*") ||
-            !password.matches(".*[a-z].*") ||
-            !password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*") ||
-            !password.matches(".*[0-9].*")) {
-            throw new IllegalArgumentException("Password must be at least 11 characters long, " +
-                "contain at least one uppercase letter, one lowercase letter, " +
-                "one symbol, and one number.");
+        if (password == null || password.length() < 11
+                || !password.matches(".*[A-Z].*")
+                || !password.matches(".*[a-z].*")
+                || !password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*")
+                || !password.matches(".*[0-9].*")) {
+            throw new IllegalArgumentException(
+                    "Password must be at least 11 characters and include upper, lower, number, and symbol.");
         }
         this.password = password;
     }
@@ -52,7 +47,7 @@ public class User {
         if (email == null || !email.contains("@")) {
             throw new IllegalArgumentException("Invalid email format");
         }
-        this.email = email;
+        this.email = email.trim();
     }
 
     public void setAge(int age) {
@@ -63,31 +58,38 @@ public class User {
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        if (phoneNumber == null || phoneNumber.length() < 7) {
-            throw new IllegalArgumentException("Invalid Phone Number Length");
+        if (phoneNumber == null || phoneNumber.replaceAll("\\s", "").length() < 7) {
+            throw new IllegalArgumentException("Invalid phone number");
         }
-        this.phoneNumber = phoneNumber;
+        this.phoneNumber = phoneNumber.trim();
     }
 
     public void setGender(String gender) {
-        if (gender == null || gender.isEmpty()) throw new IllegalArgumentException("Gender required");
-        this.gender = gender;
+        if (gender == null || gender.trim().isEmpty()) {
+            throw new IllegalArgumentException("Gender required");
+        }
+        this.gender = gender.trim();
     }
 
     public void setHomeAddress(String address) {
-        if (address == null || address.isEmpty()) throw new IllegalArgumentException("Address required");
-        this.address = address;
+        if (address == null || address.trim().isEmpty()) {
+            throw new IllegalArgumentException("Address required");
+        }
+        this.address = address.trim();
     }
 
     public void setNationality(String nationality) {
-        if (nationality == null || nationality.isEmpty()) throw new IllegalArgumentException("Nationality required");
-        this.nationality = nationality;
+        if (nationality == null || nationality.trim().isEmpty()) {
+            throw new IllegalArgumentException("Nationality required");
+        }
+        this.nationality = nationality.trim();
     }
-    
-    // ensure date joined will only be the one generated upon acc creation
-    public void setDateJoined() {
+
+    public void setDateJoined(String dateJoined) {
+        this.dateJoined = dateJoined;
+    }
+
+    public void setDateJoinedNow() {
         this.dateJoined = FileHandler.getTimestamp();
     }
-    
-    
 }

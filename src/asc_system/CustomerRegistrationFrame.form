@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="APU-ASC | Customer Registration"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+  <SubComponents>
+    <Container class="javax.swing.JScrollPane" name="scrollPane">
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+          <BorderConstraints direction="Center"/>
+        </Constraint>
+      </Constraints>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="formPanel">
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="lblTitle"/>
+            <Component class="javax.swing.JLabel" name="lblCustomerId"/>
+            <Component class="javax.swing.JTextField" name="txtCustomerId"/>
+            <Component class="javax.swing.JLabel" name="lblUsername"/>
+            <Component class="javax.swing.JTextField" name="txtUsername"/>
+            <Component class="javax.swing.JLabel" name="lblPassword"/>
+            <Component class="javax.swing.JPasswordField" name="txtPassword"/>
+            <Component class="javax.swing.JLabel" name="lblConfirmPassword"/>
+            <Component class="javax.swing.JPasswordField" name="txtConfirmPassword"/>
+            <Component class="javax.swing.JLabel" name="lblGender"/>
+            <Component class="javax.swing.JComboBox" name="cmbGender"/>
+            <Component class="javax.swing.JLabel" name="lblAge"/>
+            <Component class="javax.swing.JTextField" name="txtAge"/>
+            <Component class="javax.swing.JLabel" name="lblPhone"/>
+            <Component class="javax.swing.JTextField" name="txtPhone"/>
+            <Component class="javax.swing.JLabel" name="lblEmail"/>
+            <Component class="javax.swing.JTextField" name="txtEmail"/>
+            <Component class="javax.swing.JLabel" name="lblAddress"/>
+            <Component class="javax.swing.JTextField" name="txtAddress"/>
+            <Component class="javax.swing.JLabel" name="lblNationality"/>
+            <Component class="javax.swing.JTextField" name="txtNationality"/>
+            <Component class="javax.swing.JLabel" name="lblCarPlate"/>
+            <Component class="javax.swing.JTextField" name="txtCarPlate"/>
+            <Component class="javax.swing.JLabel" name="lblCarModel"/>
+            <Component class="javax.swing.JTextField" name="txtCarModel"/>
+            <Component class="javax.swing.JButton" name="btnRegister">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegisterActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnBack">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>

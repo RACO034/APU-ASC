@@ -1,3 +1,5 @@
+package asc_system.CounterStaff;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -14,7 +16,7 @@ import java.util.*;
 public class PaymentProcessing {
     
     private static final String FILE_Pay = "data/Payments.txt";
-    private static final String FILE_App = "data/Appointments.txt";
+    private static final String FILE_App = "data/appointments.txt";
     private static final String FILE_Price = "data/prices.txt";
 
    static {

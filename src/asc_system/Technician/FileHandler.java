@@ -1,5 +1,13 @@
-package asc_system.CounterStaff;
 
+package asc_system.Technician;
+
+
+/**
+ *
+ * @author XL
+ */
+
+// similar to cs filehandler, duplicated for easier access
 import java.io.File;
 import java.io.IOException;
 
