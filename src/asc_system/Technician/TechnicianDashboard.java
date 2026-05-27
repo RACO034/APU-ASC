@@ -384,7 +384,7 @@ public class TechnicianDashboard extends JFrame{
         }
         String remarks = fbRemarksArea.getText().trim();
         String service = fbServiceField.getText().trim();
-        String feedback = service + (remarks.isEmpty() ? "" : "\n" + remarks);
+        String feedback = service + (remarks.isEmpty() ? "" : " — " + remarks);
         if (feedback.isBlank()) {
             JOptionPane.showMessageDialog(this,
                 "Feedback cannot be empty.", "Validation", JOptionPane.WARNING_MESSAGE);
