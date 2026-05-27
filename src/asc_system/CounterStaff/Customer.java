@@ -1,3 +1,5 @@
+package asc_system.CounterStaff;
+
 /**
  * @author Ian
  * Concept: Inheritance (Subclass) & Polymorphism (Overloading)
