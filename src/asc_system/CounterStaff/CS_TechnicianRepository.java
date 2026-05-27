@@ -1,3 +1,5 @@
+package asc_system.CounterStaff;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -7,6 +9,7 @@
  *
  * @author Ian
  */
+import asc_system.CounterStaff.FileHandler;
 import java.io.*;
 import java.util.*;
 
