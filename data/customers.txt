@@ -1,0 +1,3 @@
+C00001|Sibakhe|Male|22|0123456789|sibakhe@apuasc.com|Kuala Lumpur, Malaysia|Malaysian|ABC1234|Toyota Vios|2026-01-15 10-30-00
+C00002|Jane Doe|Female|28|0129876543|jane.doe@email.com|Petaling Jaya, Selangor|Malaysian|WXY5678|Honda Civic|2026-02-20 14-00-00
+C00003|Ahmad Rizal|Male|31|0134567890|ahmad.rizal@email.com|Shah Alam, Selangor|Malaysian|JKL9012|Proton X50|2026-03-10 09-15-00
