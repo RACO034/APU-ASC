@@ -19,8 +19,8 @@ public class Customer extends User {
 
     // Unique Setters
     public void setCustomerID(String customerID) {
-        if (customerID == null || !customerID.matches("C\\d{5}")) {
-            throw new IllegalArgumentException("Invalid ID format (C00001)");
+        if (customerID == null || !customerID.matches("C%0d{5}")) {
+
         }
         this.customerID = customerID;
     }

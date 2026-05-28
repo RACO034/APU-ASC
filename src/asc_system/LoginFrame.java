@@ -3,6 +3,7 @@ package asc_system;
 import asc_system.CounterStaff.ProfileManagement;
 import asc_system.Manager.ManagerDashboard;
 import asc_system.Technician.TechnicianDashboard;
+import asc_system.customer.CustomerAdapter;
 import javax.swing.JOptionPane;
 
 /**
@@ -134,7 +135,11 @@ public class LoginFrame extends javax.swing.JFrame {
             case MANAGER -> new ManagerDashboard(session.manager).setVisible(true);
             case COUNTER_STAFF -> new ProfileManagement().setVisible(true);
             case TECHNICIAN -> new TechnicianDashboard(session.technician).setVisible(true);
-            case CUSTOMER -> new CustomerDashboard(session.customer).setVisible(true);
+            case CUSTOMER -> {
+                asc_system.models.Customer model = CustomerAdapter.toModel(session.customer);
+                Session.setCurrentCustomer(model);
+                new asc_system.customer.CustomerDashboard(model).setVisible(true);
+            }
             default -> {
             }
         }

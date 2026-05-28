@@ -76,7 +76,7 @@ public final class AuthService {
         }
         if (id.matches("C\\d{5}")) {
             Customer c = CustomerAccountService.loadCustomer(id);
-            if (c != null && CustomerCredentials.verify(id, pass)) {
+            if (c != null && CustomerAccountService.verifyPassword(id, pass)) {
                 return Session.customer(c);
             }
         }
@@ -85,7 +85,14 @@ public final class AuthService {
 
     private static String[] findCounterStaff(String id, String password) {
         for (String[] row : asc_system.CounterStaff.UserDetailsEdit.getAllUsers()) {
-            if (row.length >= 4 && row[0].equalsIgnoreCase(id) && row[3].equals(password)) {
+            if (row.length < 4 || !row[0].equalsIgnoreCase(id)) {
+                continue;
+            }
+            // Supports both legacy layout (password at index 3)
+            // and replaced layout (password at index 4).
+            String pass1 = row.length > 3 ? row[3] : "";
+            String pass2 = row.length > 4 ? row[4] : "";
+            if (password.equals(pass1) || password.equals(pass2)) {
                 return row;
             }
         }

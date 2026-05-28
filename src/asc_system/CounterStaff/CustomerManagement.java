@@ -1,6 +1,7 @@
 package asc_system.CounterStaff;
 
 
+import asc_system.CounterStaff.FileHandler;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -22,9 +23,11 @@ public class CustomerManagement {
 
     
     private static final String FILE_PATH = "data/customers.txt";
+    private static final String USERS_PATH = "data/Users.txt";
 
    static {
         FileHandler.ensureFileExists(FILE_PATH);
+        FileHandler.ensureFileExists(USERS_PATH);
     }
     
     
@@ -70,6 +73,7 @@ public class CustomerManagement {
     } catch (IOException e) {
         e.printStackTrace();
     }
+    upsertCustomerInUsers(customer, "");
 }
 
     public static void updateCustomer(Customer customer) {
@@ -127,6 +131,8 @@ public class CustomerManagement {
         if (!found) {
             System.out.println("Customer ID not found: " + customer.getCustomerID());
         }
+        String password = findCustomerPassword(customer.getCustomerID());
+        upsertCustomerInUsers(customer, password);
     }
     
     
@@ -168,6 +174,7 @@ public class CustomerManagement {
     if (!found) {
         System.out.println("Customer ID not found: " + customerID);
     }
+    removeCustomerFromUsers(customerID);
 }
     
     public static String getCustomerNameByID(String customerID) {
@@ -192,5 +199,122 @@ public class CustomerManagement {
 }
     
     
+    
+    public static void syncCustomerToUsers(String customerID, String password) {
+        if (customerID == null || customerID.isBlank()) return;
+        Customer c = loadCustomerById(customerID);
+        if (c != null) {
+            upsertCustomerInUsers(c, password == null ? "" : password);
+        }
+    }
+    
+    private static Customer loadCustomerById(String customerID) {
+        try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATH))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.trim().isEmpty()) continue;
+                String[] data = line.split("\\|", -1);
+                if (data.length >= 11 && data[0].equalsIgnoreCase(customerID)) {
+                    Customer c = new Customer();
+                    c.setCustomerID(data[0]);
+                    c.setUsername(data[1]);
+                    c.setGender(data[2]);
+                    try {
+                        c.setAge(Integer.parseInt(data[3].trim()));
+                    } catch (Exception ex) {
+                        c.setAge(18);
+                    }
+                    c.setPhoneNumber(data[4]);
+                    c.setEmail(data[5]);
+                    c.setHomeAddress(data[6]);
+                    c.setNationality(data[7]);
+                    c.setCarPlate(data[8]);
+                    c.setCarModel(data[9]);
+                    c.setDateAdded(data[10]);
+                    return c;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    private static String findCustomerPassword(String customerID) {
+        try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATH))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.trim().isEmpty()) continue;
+                String[] data = line.split("\\|", -1);
+                if (data.length >= 12 && data[0].equalsIgnoreCase(customerID)) {
+                    return data[11];
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+    
+    private static void upsertCustomerInUsers(Customer customer, String password) {
+        String usersLine = customer.getCustomerID() + "|" + customer.getUsername() + "|"
+                + customer.getGender() + "|" + (password == null ? "" : password) + "|"
+                + customer.getPhoneNumber() + "|" + customer.getEmail() + "|"
+                + customer.getHomeAddress() + "|" + customer.getNationality();
+
+        List<String> updated = new ArrayList<>();
+        boolean found = false;
+        try (BufferedReader br = new BufferedReader(new FileReader(USERS_PATH))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.trim().isEmpty()) continue;
+                String[] data = line.split("\\|", -1);
+                if (data.length > 0 && data[0].equalsIgnoreCase(customer.getCustomerID())) {
+                    updated.add(usersLine);
+                    found = true;
+                } else {
+                    updated.add(line);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (!found) {
+            updated.add(usersLine);
+        }
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(USERS_PATH))) {
+            for (String line : updated) {
+                bw.write(line);
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private static void removeCustomerFromUsers(String customerID) {
+        List<String> updated = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(USERS_PATH))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.trim().isEmpty()) continue;
+                String[] data = line.split("\\|", -1);
+                if (data.length > 0 && !data[0].equalsIgnoreCase(customerID)) {
+                    updated.add(line);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(USERS_PATH))) {
+            for (String line : updated) {
+                bw.write(line);
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     
 }

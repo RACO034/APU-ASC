@@ -1,6 +1,8 @@
 package asc_system.CounterStaff;
 
 
+import asc_system.CounterStaff.FileHandler;
+import asc_system.PublicClasses.ServiceType;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -62,10 +64,18 @@ public class Appointment {
     }
 
    //Duration check
-    int duration = serviceType.equals("Major Service") ? 3 : 1;
+    // Duration check using ServiceType enum
+    ServiceType st =
+            ServiceType.fromDisplayName(serviceType);
+
+    int duration =
+            (st != null)
+            ? st.getDuration()
+            : 1;
 
     if (hour + duration > 17) {
-        throw new IllegalArgumentException("Service exceeds working hours.");
+        throw new IllegalArgumentException(
+                "Service exceeds working hours.");
     }
 
     //(today → end of next week)
@@ -87,7 +97,8 @@ public class Appointment {
     this.serviceType = serviceType;
 
     // Duration logic
-    this.duration = serviceType.equals("Major Service") ? 3 : 1;
+    ServiceType st = ServiceType.fromDisplayName(serviceType);
+    this.duration = (st != null) ? st.getDuration() : 1;
 
     // Default status
     this.status = "Pending";

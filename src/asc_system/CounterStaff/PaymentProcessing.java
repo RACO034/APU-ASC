@@ -9,6 +9,8 @@ package asc_system.CounterStaff;
  *
  * @author Ian
  */
+import asc_system.CounterStaff.FileHandler;
+import asc_system.PublicClasses.ServiceType;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -16,7 +18,7 @@ import java.util.*;
 public class PaymentProcessing {
     
     private static final String FILE_Pay = "data/Payments.txt";
-    private static final String FILE_App = "data/appointments.txt";
+    private static final String FILE_App = "data/Appointments.txt";
     private static final String FILE_Price = "data/prices.txt";
 
    static {
@@ -98,26 +100,30 @@ public class PaymentProcessing {
     
 
     public static double getServicePrice(String serviceType) {
-        
 
-        try (BufferedReader br = new BufferedReader(new FileReader(FILE_Price))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                // Split by colon: [0] = Service Name, [1] = Price
-                String[] parts = line.split(":");
-                if (parts.length == 2 && parts[0].trim().equalsIgnoreCase(serviceType)) {
-                    return Double.parseDouble(parts[1].trim());
-                }
-            }
-        } catch (IOException | NumberFormatException e) {
-            System.err.println("Error reading price file: " + e.getMessage());
-        }
+    ServiceType service =
+            ServiceType.fromDisplayName(serviceType);
 
-        // Falls back default prices in case the file is missing or error occurs
-        return serviceType.equalsIgnoreCase("Minor Service") ? 100.00 : 300.00;
+    if (service != null) {
+        return service.getPrice();
     }
 
-   
+    return 0.0;
+    }
+    
+    
+    public static int getServiceDuration(String serviceType) {
+
+    ServiceType service =
+            ServiceType.fromDisplayName(serviceType);
+
+    if (service != null) {
+        return service.getDuration();
+    }
+
+    return 0;
+    }
+    
     private static String generatePaymentID() {
 
         int count = 0;

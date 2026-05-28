@@ -11,6 +11,7 @@ package asc_system.CounterStaff;
 // ALWAYS CHECK INIT COMPONENTS (TABLE LISTENERS ONLY NEED TO BE INITIALIZED ONCE 
 // 
 
+import asc_system.PublicClasses.ServiceType;
 import java.awt.CardLayout;
     import java.awt.Color;
 import java.awt.Component;
@@ -29,6 +30,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -147,7 +149,7 @@ private void loadCustomers(String searchID) {
 }
 
 private void loadCustomerDropdown() {
-    javax.swing.DefaultComboBoxModel<String> model = new javax.swing.DefaultComboBoxModel<>();
+    DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
     
     for (String[] data : customerRepo.getAllCustomers()) {
         model.addElement(data[0]);
@@ -155,6 +157,16 @@ private void loadCustomerDropdown() {
     
     CustAppoinment.setModel(model);
 }
+
+private void loadServiceDropdown() {
+   DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+    
+    for (ServiceType s : ServiceType.values()) {
+    ServiceDropdown.addItem(
+            s.getDisplayName());
+}
+}
+
 
 private void loadPaymentDropdown() {
     
@@ -405,6 +417,11 @@ private void setupPaymentTableListener() {
 
                 PaymentAmount.setText(String.format("%.2f", amount));
                 PaymentCustName.setText(customerName);
+                
+                System.out.println("ROW SELECTED = " + row);
+System.out.println("SERVICE RAW = [" + PaymentAppointmentTable.getValueAt(row, 3) + "]");
+System.out.println("CUSTOMER RAW = [" + PaymentAppointmentTable.getValueAt(row, 2) + "]");
+System.out.println("LOOKUP RESULT = " + PaymentProcessing.getServicePrice(serviceType));
             }
         }
     });
@@ -539,8 +556,10 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
     private void initComponents() {
 
         ButtonPanel = new javax.swing.JPanel();
-        SubmitButton54 = new javax.swing.JButton();
-        SubmitButton55 = new javax.swing.JButton();
+        SubmitButton24 = new javax.swing.JButton();
+        SubmitButton35 = new javax.swing.JButton();
+        SubmitButton37 = new javax.swing.JButton();
+        SubmitButton38 = new javax.swing.JButton();
         MainPanel = new javax.swing.JPanel();
         ContentPanel = new javax.swing.JPanel();
         C_S_CounterStaffMasterPage = new javax.swing.JPanel();
@@ -548,10 +567,10 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
         SubmitButton21 = new javax.swing.JButton();
         SubmitButton22 = new javax.swing.JButton();
         SubmitButton23 = new javax.swing.JButton();
-        SubmitButton24 = new javax.swing.JButton();
         SubmitButton25 = new javax.swing.JButton();
         jTextField94 = new javax.swing.JTextField();
         jTextField99 = new javax.swing.JTextField();
+        SubmitButton34 = new javax.swing.JButton();
         C_S_UserEditPage = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         userTable = new javax.swing.JTable();
@@ -682,39 +701,69 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        SubmitButton54.setBackground(new java.awt.Color(0, 87, 184));
-        SubmitButton54.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        SubmitButton54.setForeground(new java.awt.Color(255, 255, 255));
-        SubmitButton54.setText("Edit Current Users Details");
-        SubmitButton54.addActionListener(this::SubmitButton54ActionPerformed);
+        SubmitButton24.setBackground(new java.awt.Color(0, 87, 184));
+        SubmitButton24.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        SubmitButton24.setForeground(new java.awt.Color(255, 255, 255));
+        SubmitButton24.setText("Edit Current Users Details");
+        SubmitButton24.addActionListener(this::SubmitButton24ActionPerformed);
 
-        SubmitButton55.setBackground(new java.awt.Color(0, 87, 184));
-        SubmitButton55.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        SubmitButton55.setForeground(new java.awt.Color(255, 255, 255));
-        SubmitButton55.setText("Edit Current Users Details");
-        SubmitButton55.addActionListener(this::SubmitButton55ActionPerformed);
+        SubmitButton35.setBackground(new java.awt.Color(0, 87, 184));
+        SubmitButton35.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        SubmitButton35.setForeground(new java.awt.Color(255, 255, 255));
+        SubmitButton35.setText("Process Payments");
+        SubmitButton35.addActionListener(this::SubmitButton35ActionPerformed);
+
+        SubmitButton37.setBackground(new java.awt.Color(0, 87, 184));
+        SubmitButton37.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        SubmitButton37.setForeground(new java.awt.Color(255, 255, 255));
+        SubmitButton37.setText("Manage Appointments");
+        SubmitButton37.addActionListener(this::SubmitButton37ActionPerformed);
+
+        SubmitButton38.setBackground(new java.awt.Color(0, 87, 184));
+        SubmitButton38.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        SubmitButton38.setForeground(new java.awt.Color(255, 255, 255));
+        SubmitButton38.setText("Customer Management");
+        SubmitButton38.addActionListener(this::SubmitButton38ActionPerformed);
 
         javax.swing.GroupLayout ButtonPanelLayout = new javax.swing.GroupLayout(ButtonPanel);
         ButtonPanel.setLayout(ButtonPanelLayout);
         ButtonPanelLayout.setHorizontalGroup(
             ButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ButtonPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(SubmitButton55)
-                .addContainerGap())
             .addGroup(ButtonPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(SubmitButton54)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(ButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SubmitButton24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SubmitButton37, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(ButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ButtonPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(SubmitButton35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(ButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ButtonPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(SubmitButton38, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         ButtonPanelLayout.setVerticalGroup(
             ButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ButtonPanelLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(SubmitButton55)
-                .addGap(48, 48, 48)
-                .addComponent(SubmitButton54)
-                .addContainerGap(910, Short.MAX_VALUE))
+            .addGroup(ButtonPanelLayout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addComponent(SubmitButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(219, 219, 219)
+                .addComponent(SubmitButton37, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(ButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ButtonPanelLayout.createSequentialGroup()
+                    .addGap(534, 534, 534)
+                    .addComponent(SubmitButton35, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(533, Short.MAX_VALUE)))
+            .addGroup(ButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ButtonPanelLayout.createSequentialGroup()
+                    .addGap(226, 226, 226)
+                    .addComponent(SubmitButton38, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(840, Short.MAX_VALUE)))
         );
 
         getContentPane().add(ButtonPanel, java.awt.BorderLayout.WEST);
@@ -736,7 +785,7 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
         SubmitButton21.setBackground(new java.awt.Color(0, 87, 184));
         SubmitButton21.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         SubmitButton21.setForeground(new java.awt.Color(255, 255, 255));
-        SubmitButton21.setText("Return");
+        SubmitButton21.setText("LOGOUT");
         SubmitButton21.addActionListener(this::SubmitButton21ActionPerformed);
 
         SubmitButton22.setBackground(new java.awt.Color(0, 87, 184));
@@ -750,12 +799,6 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
         SubmitButton23.setForeground(new java.awt.Color(255, 255, 255));
         SubmitButton23.setText("Manage Appointments");
         SubmitButton23.addActionListener(this::SubmitButton23ActionPerformed);
-
-        SubmitButton24.setBackground(new java.awt.Color(0, 87, 184));
-        SubmitButton24.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        SubmitButton24.setForeground(new java.awt.Color(255, 255, 255));
-        SubmitButton24.setText("Edit Current Users Details");
-        SubmitButton24.addActionListener(this::SubmitButton24ActionPerformed);
 
         SubmitButton25.setBackground(new java.awt.Color(0, 87, 184));
         SubmitButton25.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -781,6 +824,12 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
         jTextField99.setBorder(null);
         jTextField99.addActionListener(this::jTextField99ActionPerformed);
 
+        SubmitButton34.setBackground(new java.awt.Color(0, 87, 184));
+        SubmitButton34.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        SubmitButton34.setForeground(new java.awt.Color(255, 255, 255));
+        SubmitButton34.setText("Edit Current Users Details");
+        SubmitButton34.addActionListener(this::SubmitButton34ActionPerformed);
+
         javax.swing.GroupLayout C_S_CounterStaffMasterPageLayout = new javax.swing.GroupLayout(C_S_CounterStaffMasterPage);
         C_S_CounterStaffMasterPage.setLayout(C_S_CounterStaffMasterPageLayout);
         C_S_CounterStaffMasterPageLayout.setHorizontalGroup(
@@ -788,13 +837,10 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
             .addGroup(C_S_CounterStaffMasterPageLayout.createSequentialGroup()
                 .addGroup(C_S_CounterStaffMasterPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(C_S_CounterStaffMasterPageLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(SubmitButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(C_S_CounterStaffMasterPageLayout.createSequentialGroup()
                         .addGap(335, 335, 335)
                         .addGroup(C_S_CounterStaffMasterPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(SubmitButton24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(SubmitButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(SubmitButton23, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                            .addComponent(SubmitButton34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(49, 49, 49)
                         .addGroup(C_S_CounterStaffMasterPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(SubmitButton22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -806,29 +852,32 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
                         .addComponent(jTextField94, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(C_S_CounterStaffMasterPageLayout.createSequentialGroup()
                         .addGap(366, 366, 366)
-                        .addComponent(jTextField93, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextField93, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(C_S_CounterStaffMasterPageLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(SubmitButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(1433, Short.MAX_VALUE))
         );
         C_S_CounterStaffMasterPageLayout.setVerticalGroup(
             C_S_CounterStaffMasterPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(C_S_CounterStaffMasterPageLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(17, 17, 17)
+                .addComponent(SubmitButton21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField93, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(C_S_CounterStaffMasterPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField94, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField99, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(116, 116, 116)
-                .addGroup(C_S_CounterStaffMasterPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(SubmitButton24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(SubmitButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(C_S_CounterStaffMasterPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SubmitButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SubmitButton34, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(184, 184, 184)
                 .addGroup(C_S_CounterStaffMasterPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(SubmitButton25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(SubmitButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 523, Short.MAX_VALUE)
-                .addComponent(SubmitButton21)
-                .addContainerGap())
+                .addContainerGap(556, Short.MAX_VALUE))
         );
 
         ContentPanel.add(C_S_CounterStaffMasterPage, "CounterStaffMasterPage");
@@ -1672,8 +1721,6 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
         SubmitButton13.setText("Confirm Changes");
         SubmitButton13.addActionListener(this::SubmitButton13ActionPerformed);
 
-        ServiceDropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Major Service", "Minor Service" }));
-
         jTextField10.setBackground(new java.awt.Color(255, 255, 255));
         jTextField10.setFont(new java.awt.Font("Malgun Gothic", 1, 36)); // NOI18N
         jTextField10.setForeground(new java.awt.Color(0, 0, 0));
@@ -1979,6 +2026,8 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
         jTextField17.setText("Name");
         jTextField17.addActionListener(this::jTextField17ActionPerformed);
 
+        PaymentAmount.addActionListener(this::PaymentAmountActionPerformed);
+
         SubmitButton2.setBackground(new java.awt.Color(0, 87, 184));
         SubmitButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         SubmitButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -2166,7 +2215,7 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1120, Short.MAX_VALUE)
+            .addGap(0, 1132, Short.MAX_VALUE)
             .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2450,6 +2499,7 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
             // 1. Capture Raw Inputs
             Object selectedItem = CustAppoinment.getSelectedItem();
             Object selectedService = ServiceDropdown.getSelectedItem();
+            
             Date rawDate = datePicker.getDate();
             String rawTime = TimeField.getText().trim();
 
@@ -2469,7 +2519,7 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
                 return;
             }
 
-            // 4. Time Format Validation (Figure 4.2.3)
+            // 4. Time Format Validation 
             LocalTime time;
             try {
                 time = LocalTime.parse(rawTime);
@@ -2613,6 +2663,7 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
         
         loadAppointments();
         loadCustomerDropdown();
+        loadServiceDropdown();
     }//GEN-LAST:event_SubmitButton20ActionPerformed
 
     private void jTextField93ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField93ActionPerformed
@@ -3013,14 +3064,6 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField20ActionPerformed
 
-    private void SubmitButton54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButton54ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SubmitButton54ActionPerformed
-
-    private void SubmitButton55ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButton55ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SubmitButton55ActionPerformed
-
     private void jTextField94ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField94ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField94ActionPerformed
@@ -3078,6 +3121,30 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
     private void jTextField99ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField99ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField99ActionPerformed
+
+    private void SubmitButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButton35ActionPerformed
+        CardLayout backbutton = (CardLayout)ContentPanel.getLayout();
+        backbutton.show(ContentPanel, "PaymentProcessing");
+    }//GEN-LAST:event_SubmitButton35ActionPerformed
+
+    private void SubmitButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButton37ActionPerformed
+        CardLayout backbutton = (CardLayout)ContentPanel.getLayout();
+        backbutton.show(ContentPanel, "AppointManage");
+    }//GEN-LAST:event_SubmitButton37ActionPerformed
+
+    private void SubmitButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButton38ActionPerformed
+        CardLayout backbutton = (CardLayout)ContentPanel.getLayout();
+        backbutton.show(ContentPanel, "CustomerManagement");
+    }//GEN-LAST:event_SubmitButton38ActionPerformed
+
+    private void SubmitButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButton34ActionPerformed
+        CardLayout backbutton = (CardLayout)ContentPanel.getLayout();
+        backbutton.show(ContentPanel, "userEditPage");
+    }//GEN-LAST:event_SubmitButton34ActionPerformed
+
+    private void PaymentAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PaymentAmountActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PaymentAmountActionPerformed
 
 
 public class HoverEffect extends MouseAdapter {
@@ -3196,9 +3263,11 @@ public class HoverEffect extends MouseAdapter {
     private javax.swing.JButton SubmitButton31;
     private javax.swing.JButton SubmitButton32;
     private javax.swing.JButton SubmitButton33;
+    private javax.swing.JButton SubmitButton34;
+    private javax.swing.JButton SubmitButton35;
+    private javax.swing.JButton SubmitButton37;
+    private javax.swing.JButton SubmitButton38;
     private javax.swing.JButton SubmitButton4;
-    private javax.swing.JButton SubmitButton54;
-    private javax.swing.JButton SubmitButton55;
     private javax.swing.JTextField TimeField;
     private javax.swing.JButton assignButton;
     private javax.swing.JTable createAppointTable;

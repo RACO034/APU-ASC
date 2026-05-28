@@ -38,7 +38,7 @@ public class TechnicianDashboard extends JFrame{
     private Appointment selectedForFeedback;
     private JLabel fbApptLabel;
     private JLabel fbCommentsValue;
-    private JTextField fbServiceField;
+    private JLabel fbServiceField;
     private JTextArea fbRemarksArea;
     
     // column definition
@@ -130,9 +130,7 @@ public class TechnicianDashboard extends JFrame{
             int c = JOptionPane.showConfirmDialog(this,
                 "Are you sure you want to log out?", "Log out",
                 JOptionPane.YES_NO_OPTION);
-            if (c == JOptionPane.YES_OPTION) {
-                asc_system.LoginFrame.returnToLogin(this);
-            }
+            if (c == JOptionPane.YES_OPTION) dispose();
         });
         sidebar.add(Box.createVerticalStrut(6));
         sidebar.add(logout);
@@ -219,7 +217,7 @@ public class TechnicianDashboard extends JFrame{
                 a.getAppointmentID(),
                 a.getCustomerID(),
                 a.getServiceType(),
-                a.getScheduledDateStr(),   // String so table shows nicely
+                a.getScheduledDateStr(),  
                 a.getScheduledTimeStr(),
                 a.getDuration() + "h",
                 a.getStatus() != null ? a.getStatus().toString() : "—",
@@ -340,7 +338,8 @@ public class TechnicianDashboard extends JFrame{
         // Service performed
         g.gridx = 0; g.gridy = 1; g.weightx = 0;
         form.add(new JLabel("Service performed:"), g);
-        fbServiceField = new JTextField(30);
+        fbServiceField = new JLabel("—");
+        fbServiceField.setBorder(BorderFactory.createEtchedBorder());
         g.gridx = 1; g.weightx = 1;
         form.add(fbServiceField, g);
  
@@ -383,16 +382,20 @@ public class TechnicianDashboard extends JFrame{
                 "No appointment selected", JOptionPane.WARNING_MESSAGE);
             return;
         }
+        
         String remarks = fbRemarksArea.getText().trim();
-        String service = fbServiceField.getText().trim();
-        String feedback = service + (remarks.isEmpty() ? "" : "\n" + remarks);
-        if (feedback.isBlank()) {
+        
+        if (remarks.isEmpty()) {
             JOptionPane.showMessageDialog(this,
-                "Feedback cannot be empty.", "Validation", JOptionPane.WARNING_MESSAGE);
+                "Feedback remarks cannot be empty.", "Validation", JOptionPane.WARNING_MESSAGE);
             return;
         }
+        
+        String cleanedRemarks = remarks.replace("\n", " ");
+        
+
         try {
-            current.submitFeedback(selectedForFeedback.getAppointmentID(), feedback);
+            current.submitFeedback(selectedForFeedback.getAppointmentID(), cleanedRemarks);
             appointments = current.viewAssignedAppointments();
             refreshApptTable("All Status");
             populateDashTable();
@@ -502,10 +505,15 @@ public class TechnicianDashboard extends JFrame{
             "Appointment ID : %s%nCustomer ID    : %s%nService        : %s%n" +
             "Date / Time    : %s  %s  (%dh)%nStatus         : %s%n%n" +
             "Customer notes : %s%nTech feedback  : %s",
-            a.getAppointmentID(), a.getCustomerID(),
-            a.getServiceType(), a.getScheduledDateStr(), a.getScheduledTimeStr(),
-            a.getDuration(), a.getStatus(),
-            nvl(a.getCustomerComments()), nvl(a.getTechnicianFeedback()));
+            a.getAppointmentID(), 
+            a.getCustomerID(),
+            a.getServiceType(), 
+            a.getScheduledDateStr(), 
+            a.getScheduledTimeStr(),
+            a.getDuration(), 
+            a.getStatus(),
+            nvl(a.getCustomerComments()), 
+            nvl(a.getTechnicianFeedback()));
         JTextArea ta = new JTextArea(msg);
         ta.setFont(new Font("Monospaced", Font.PLAIN, 12));
         ta.setEditable(false);

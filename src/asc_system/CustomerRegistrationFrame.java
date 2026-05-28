@@ -29,7 +29,7 @@ public class CustomerRegistrationFrame extends javax.swing.JFrame {
             validateCustomerPassword(password);
 
             String id = txtCustomerId.getText().trim();
-            if (CustomerCredentials.exists(id)) {
+            if (CustomerAccountService.getPasswordUnsafe(id) != null && !CustomerAccountService.getPasswordUnsafe(id).isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Customer ID already registered.", "Error",
                         JOptionPane.ERROR_MESSAGE);
                 return;
@@ -49,7 +49,7 @@ public class CustomerRegistrationFrame extends javax.swing.JFrame {
             c.setDateAdded(FileHandler.getTimestamp());
 
             CustomerManagement.addCustomer(c);
-            CustomerCredentials.save(id, password);
+            CustomerAccountService.setPassword(id, password);
 
             JOptionPane.showMessageDialog(this,
                     "Registration successful!\nYour Customer ID: " + id,
