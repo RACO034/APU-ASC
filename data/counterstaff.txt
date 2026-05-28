@@ -1,0 +1,1 @@
+CS001|John|Male|pass1234|0123478121|John@gmail.com|Melaka, Malaysia|Malaysian|2026-05-28 12-53-44

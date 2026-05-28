@@ -1,1 +1,3 @@
 T001|xiaolongbao_tech|pass123|xiaolongbao@apuasc.com|+60123456789|28|Male|Jalan Ampang, KL|Malaysian|2020-03-18 08:11:42|ENGINE_REPAIR|AVAILABLE
+T002|dahongpao_tech|pass456|dahongpao@apuasc.com|+601237899456|27|Female|Jalan Kenari, Puchong|Malaysian|2022-06-01 08:02:11|ELECTRICAL|AVAILABLE
+T003|Offthing|techpass1234|offhing@gmail.com|0102938483|24|Male|Penang, Malaysia|Malaysian|2026-05-28 12-54-55|ELECTRICAL|AVAILABLE

@@ -1,2 +1,6 @@
-CS001|djiu lvei lvou mou ong9|Female|pass1234|0123478121|ali@gmail.com|Shah Alam, Selangor|Malaysian
-M001|djiu lvei lvou mou ong9|Female|pass1234|0123456789|ali@gmail.com|Shah Alam, Selangor|Malaysian
+M003|Somthing|Male|VcT1234!Somethingkot|010230928|Vctsomething@apuasc.com|Russia, Malaysia|Indian
+M004|apsodsakpd|Male|apasd213213od!Kpdapsodsakpd|23194870|apsodsakpd@gmail.com|meow, catland|Malaysian
+CS001|John|Male|pass1234|0123478121|John@gmail.com|Melaka, Malaysia|Malaysian
+T003|Offthing|Male|techpass1234|0102938483|offhing@gmail.com|Penang, Malaysia|Malaysian
+C00005|Jonny|Male|jonny1234|0193837246|jonny@gmail.com|Johor, Malaysia|Malaysian
+C00006|DAniel|Male|Danny1234|0104202838|danny@gmail.com|Penang, Malaysia|Malaysian

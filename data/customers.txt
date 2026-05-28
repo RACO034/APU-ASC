@@ -1,3 +1,6 @@
-C00001|Sibakhe|Male|22|0123456789|sibakhe@apuasc.com|Kuala Lumpur, Malaysia|Malaysian|ABC1234|Toyota Vios|2026-01-15 10-30-00
-C00002|Jane Doe|Female|28|0129876543|jane.doe@email.com|Petaling Jaya, Selangor|Malaysian|WXY5678|Honda Civic|2026-02-20 14-00-00
-C00003|Ahmad Rizal|Male|31|0134567890|ahmad.rizal@email.com|Shah Alam, Selangor|Malaysian|JKL9012|Proton X50|2026-03-10 09-15-00
+C00001|Sibakhe|Male|22|0123456789|sibakhe@apuasc.com|Kuala Lumpur, Malaysia|Malaysian|ABC1234|Toyota Vios|2026-01-15 10-30-00|CustomerPass1!
+C00002|Jane Doe|Female|28|0129876543|jane.doe@email.com|Petaling Jaya, Selangor|Malaysian|WXY5678|Honda Civic|2026-02-20 14-00-00|CustomerPass2!
+C00003|Ahmad Rizal|Male|31|0134567890|ahmad.rizal@email.com|Shah Alam, Selangor|Malaysian|JKL9012|Proton X50|2026-03-10 09-15-00|CustomerPass3!
+C00004|oofoof|Male|69|0190090809|oof@gmail.com|oof, Malaysia|Imagination|BCC1919|Mercedes|2026-05-27 20-57-50|oof123123
+C00005|Jonny|Male|23|0193837246|jonny@gmail.com|Johor, Malaysia|Malaysian|PRR0293|BMW|2026-05-28 12-55-54|jonny1234
+C00006|DAniel|Male|24|0104202838|danny@gmail.com|Penang, Malaysia|Malaysian|TP02932|BMW|2026-05-28 12-56-51|Danny1234
