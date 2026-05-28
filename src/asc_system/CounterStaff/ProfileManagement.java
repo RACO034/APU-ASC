@@ -11,6 +11,7 @@ package asc_system.CounterStaff;
 // ALWAYS CHECK INIT COMPONENTS (TABLE LISTENERS ONLY NEED TO BE INITIALIZED ONCE 
 // 
 
+import asc_system.LoginFrame;
 import asc_system.PublicClasses.ServiceType;
 import java.awt.CardLayout;
     import java.awt.Color;
@@ -2671,7 +2672,7 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
     }//GEN-LAST:event_jTextField93ActionPerformed
 
     private void SubmitButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButton21ActionPerformed
-        // TODO add your handling code here:
+        LoginFrame.returnToLogin(this);
     }//GEN-LAST:event_SubmitButton21ActionPerformed
 
     private void SubmitButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButton22ActionPerformed
