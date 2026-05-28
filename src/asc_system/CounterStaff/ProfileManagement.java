@@ -785,7 +785,7 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
         SubmitButton21.setBackground(new java.awt.Color(0, 87, 184));
         SubmitButton21.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         SubmitButton21.setForeground(new java.awt.Color(255, 255, 255));
-        SubmitButton21.setText("Return");
+        SubmitButton21.setText("LOGOUT");
         SubmitButton21.addActionListener(this::SubmitButton21ActionPerformed);
 
         SubmitButton22.setBackground(new java.awt.Color(0, 87, 184));
@@ -837,9 +837,6 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
             .addGroup(C_S_CounterStaffMasterPageLayout.createSequentialGroup()
                 .addGroup(C_S_CounterStaffMasterPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(C_S_CounterStaffMasterPageLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(SubmitButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(C_S_CounterStaffMasterPageLayout.createSequentialGroup()
                         .addGap(335, 335, 335)
                         .addGroup(C_S_CounterStaffMasterPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(SubmitButton23, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
@@ -855,13 +852,18 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
                         .addComponent(jTextField94, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(C_S_CounterStaffMasterPageLayout.createSequentialGroup()
                         .addGap(366, 366, 366)
-                        .addComponent(jTextField93, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextField93, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(C_S_CounterStaffMasterPageLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(SubmitButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(1433, Short.MAX_VALUE))
         );
         C_S_CounterStaffMasterPageLayout.setVerticalGroup(
             C_S_CounterStaffMasterPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(C_S_CounterStaffMasterPageLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(17, 17, 17)
+                .addComponent(SubmitButton21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField93, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(C_S_CounterStaffMasterPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -875,9 +877,7 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
                 .addGroup(C_S_CounterStaffMasterPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(SubmitButton25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(SubmitButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 523, Short.MAX_VALUE)
-                .addComponent(SubmitButton21)
-                .addContainerGap())
+                .addContainerGap(556, Short.MAX_VALUE))
         );
 
         ContentPanel.add(C_S_CounterStaffMasterPage, "CounterStaffMasterPage");
