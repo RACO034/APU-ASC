@@ -11,7 +11,7 @@ package asc_system.CounterStaff;
 // ALWAYS CHECK INIT COMPONENTS (TABLE LISTENERS ONLY NEED TO BE INITIALIZED ONCE 
 // 
 
-import asc_system.LoginFrame;
+
 import asc_system.PublicClasses.ServiceType;
 import java.awt.CardLayout;
     import java.awt.Color;
@@ -705,7 +705,7 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
         SubmitButton24.setBackground(new java.awt.Color(0, 87, 184));
         SubmitButton24.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         SubmitButton24.setForeground(new java.awt.Color(255, 255, 255));
-        SubmitButton24.setText("Edit Current Users Details");
+        SubmitButton24.setText("Edit Current Profile");
         SubmitButton24.addActionListener(this::SubmitButton24ActionPerformed);
 
         SubmitButton35.setBackground(new java.awt.Color(0, 87, 184));
@@ -725,49 +725,6 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
         SubmitButton38.setForeground(new java.awt.Color(255, 255, 255));
         SubmitButton38.setText("Customer Management");
         SubmitButton38.addActionListener(this::SubmitButton38ActionPerformed);
-
-        javax.swing.GroupLayout ButtonPanelLayout = new javax.swing.GroupLayout(ButtonPanel);
-        ButtonPanel.setLayout(ButtonPanelLayout);
-        ButtonPanelLayout.setHorizontalGroup(
-            ButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ButtonPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(ButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SubmitButton24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(SubmitButton37, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(ButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ButtonPanelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(SubmitButton35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
-            .addGroup(ButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ButtonPanelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(SubmitButton38, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        ButtonPanelLayout.setVerticalGroup(
-            ButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ButtonPanelLayout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addComponent(SubmitButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(219, 219, 219)
-                .addComponent(SubmitButton37, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(ButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ButtonPanelLayout.createSequentialGroup()
-                    .addGap(534, 534, 534)
-                    .addComponent(SubmitButton35, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(533, Short.MAX_VALUE)))
-            .addGroup(ButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ButtonPanelLayout.createSequentialGroup()
-                    .addGap(226, 226, 226)
-                    .addComponent(SubmitButton38, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(840, Short.MAX_VALUE)))
-        );
-
-        getContentPane().add(ButtonPanel, java.awt.BorderLayout.WEST);
 
         ContentPanel.setLayout(new java.awt.CardLayout());
 
@@ -828,7 +785,7 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
         SubmitButton34.setBackground(new java.awt.Color(0, 87, 184));
         SubmitButton34.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         SubmitButton34.setForeground(new java.awt.Color(255, 255, 255));
-        SubmitButton34.setText("Edit Current Users Details");
+        SubmitButton34.setText("Edit Current Profille Details");
         SubmitButton34.addActionListener(this::SubmitButton34ActionPerformed);
 
         javax.swing.GroupLayout C_S_CounterStaffMasterPageLayout = new javax.swing.GroupLayout(C_S_CounterStaffMasterPage);
@@ -1093,7 +1050,7 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(171, 171, 171)
                 .addComponent(SubmitButton29)
-                .addContainerGap(382, Short.MAX_VALUE))
+                .addContainerGap(394, Short.MAX_VALUE))
         );
 
         ContentPanel.add(C_S_UserEditPage, "userEditPage");
@@ -1374,7 +1331,7 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
                                     .addGroup(C_S_createNewCustomersLayout.createSequentialGroup()
                                         .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(CustAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE))
+                                    .addComponent(CustAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(C_S_createNewCustomersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField95, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1570,7 +1527,7 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
                         .addGap(18, 18, 18)
                         .addComponent(SubmitButton15)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 1087, Short.MAX_VALUE))
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 1099, Short.MAX_VALUE))
                 .addGap(15, 15, 15))
         );
 
@@ -1957,7 +1914,7 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
                 .addComponent(assignButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
                 .addComponent(SubmitButton32)
-                .addContainerGap(545, Short.MAX_VALUE))
+                .addContainerGap(557, Short.MAX_VALUE))
         );
 
         ContentPanel.add(C_S_assignAppointments, "assignAppointments");
@@ -2132,7 +2089,7 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
                         .addComponent(SubmitButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(SubmitButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(643, Short.MAX_VALUE))
+                        .addContainerGap(655, Short.MAX_VALUE))
                     .addGroup(C_S_PaymentProcessingLayout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(218, 218, 218)
@@ -2198,7 +2155,7 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
                 .addGroup(C_S_ReceiptGenerationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SubmitButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(receiptToTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(629, Short.MAX_VALUE))
+                .addContainerGap(641, Short.MAX_VALUE))
         );
 
         ContentPanel.add(C_S_ReceiptGeneration, "ReceiptGeneration");
@@ -2224,7 +2181,51 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
                     .addContainerGap()))
         );
 
-        getContentPane().add(MainPanel, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout ButtonPanelLayout = new javax.swing.GroupLayout(ButtonPanel);
+        ButtonPanel.setLayout(ButtonPanelLayout);
+        ButtonPanelLayout.setHorizontalGroup(
+            ButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ButtonPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(SubmitButton37, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SubmitButton24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(6, 6, 6)
+                .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(ButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ButtonPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(SubmitButton35, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(2369, 2369, 2369)))
+            .addGroup(ButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ButtonPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(SubmitButton38, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(2374, Short.MAX_VALUE)))
+        );
+        ButtonPanelLayout.setVerticalGroup(
+            ButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ButtonPanelLayout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addComponent(SubmitButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(219, 219, 219)
+                .addComponent(SubmitButton37, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addComponent(MainPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(ButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ButtonPanelLayout.createSequentialGroup()
+                    .addGap(534, 534, 534)
+                    .addComponent(SubmitButton35, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(533, 533, 533)))
+            .addGroup(ButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ButtonPanelLayout.createSequentialGroup()
+                    .addGap(226, 226, 226)
+                    .addComponent(SubmitButton38, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(840, 840, 840)))
+        );
+
+        getContentPane().add(ButtonPanel, java.awt.BorderLayout.WEST);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -2672,7 +2673,7 @@ public void formatTableWithScroll(JTable table, JScrollPane scrollPane) {
     }//GEN-LAST:event_jTextField93ActionPerformed
 
     private void SubmitButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButton21ActionPerformed
-        LoginFrame.returnToLogin(this);
+        
     }//GEN-LAST:event_SubmitButton21ActionPerformed
 
     private void SubmitButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButton22ActionPerformed
