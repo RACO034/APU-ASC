@@ -30,7 +30,7 @@ public class TMain {
             // load from technician.txt, t001
             TechnicianRepository repo = new TechnicianRepository();
             List<String[]> all = repo.getAllTechnicians();
-            String[] row = all.get(0); // change param to get diff technician
+            String[] row = all.get(1); // change param to get diff technician
             
             Technician tech = new Technician(
                 row[0],

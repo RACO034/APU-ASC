@@ -4,7 +4,6 @@
  */
 package asc_system.Technician;
 
-import asc_system.Technician.User;
 import java.util.List;
 
 // inheretance

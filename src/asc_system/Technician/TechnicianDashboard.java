@@ -18,11 +18,9 @@ public class TechnicianDashboard extends JFrame{
     
     // File paths 
     private static final String APPOINTMENT_FILE = "data/appointments.txt";
-    private static final String CUSTOMER_FILE = "data/customers.txt";
     
     static {
         FileHandler.ensureFileExists(APPOINTMENT_FILE);
-        FileHandler.ensureFileExists(CUSTOMER_FILE);
     }
     
     // layout

@@ -17,11 +17,6 @@ import java.time.format.DateTimeParseException;
 
 public class Appointment {
     
-    private static final String FILE_PATH = "data/appointments.txt";
-
-    static {
-         FileHandler.ensureFileExists(FILE_PATH);
-     }
     // align with Ian 0-7, used enum for status tho
     private String appointmentID;
     private String customerID;
