@@ -393,7 +393,6 @@ public class TechnicianDashboard extends JFrame{
         
         String cleanedRemarks = remarks.replace("\n", " ");
         
-        String service = fbServiceField.getText().trim();
 
         try {
             current.submitFeedback(selectedForFeedback.getAppointmentID(), cleanedRemarks);
