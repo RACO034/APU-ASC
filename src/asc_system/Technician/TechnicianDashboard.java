@@ -382,16 +382,21 @@ public class TechnicianDashboard extends JFrame{
                 "No appointment selected", JOptionPane.WARNING_MESSAGE);
             return;
         }
+        
         String remarks = fbRemarksArea.getText().trim();
-        String service = fbServiceField.getText().trim();
-        String feedback = service + (remarks.isEmpty() ? "" : " — " + remarks);
-        if (feedback.isBlank()) {
+        
+        if (remarks.isEmpty()) {
             JOptionPane.showMessageDialog(this,
-                "Feedback cannot be empty.", "Validation", JOptionPane.WARNING_MESSAGE);
+                "Feedback remarks cannot be empty.", "Validation", JOptionPane.WARNING_MESSAGE);
             return;
         }
+        
+        String cleanedRemarks = remarks.replace("\n", " ");
+        
+        String service = fbServiceField.getText().trim();
+
         try {
-            current.submitFeedback(selectedForFeedback.getAppointmentID(), feedback);
+            current.submitFeedback(selectedForFeedback.getAppointmentID(), cleanedRemarks);
             appointments = current.viewAssignedAppointments();
             refreshApptTable("All Status");
             populateDashTable();
